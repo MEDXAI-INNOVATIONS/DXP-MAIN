@@ -1,8 +1,12 @@
+streamlit
+torch
+rdkit
+crewai
+litellm
 pubchempy
 pandas
 numpy
 matplotlib
 seaborn
-torch
-rdkit-pypi
-crewai
+pillow
+scikit-learn
