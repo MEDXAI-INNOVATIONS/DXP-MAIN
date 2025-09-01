@@ -1,0 +1,8 @@
+pubchempy
+pandas
+numpy
+matplotlib
+seaborn
+torch
+rdkit-pypi
+crewai
