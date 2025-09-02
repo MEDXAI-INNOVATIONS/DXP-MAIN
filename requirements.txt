@@ -1,6 +1,6 @@
 streamlit
 torch
-rdkit-pypi==2022.9.5
+rdkit
 crewai
 litellm
 pubchempy
