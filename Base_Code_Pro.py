@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 import warnings
 from rdkit import Chem
-from rdkit.Chem import Draw
+from rdkit.Chem import AllChem, Draw
 from rdkit import DataStructs
 from rdkit.Chem import rdFingerprintGenerator
 from crewai import Agent, Task, Crew, LLM
