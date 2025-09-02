@@ -14,7 +14,7 @@ from rdkit import DataStructs
 from rdkit.Chem import rdFingerprintGenerator
 import os
 os.environ["CHROMADB_DEFAULT_DATABASE"] = "duckdb"
-from crewai import Agent, Task, Crew, LLM
+#from crewai import Agent, Task, Crew, LLM
 #from crewai_tools import SerperDevTool
 import base64
 from io import BytesIO
@@ -26,15 +26,15 @@ import datetime
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
-os.environ["MISTRAL_API_KEY"] = "Vb3UFTvPq3sBIR2kJDwgDn59iFoYcZ7Q"
-os.environ["SERPER_API_KEY"] = "9b218beb8557de0554ba4710556e6978139bdc12"
+#os.environ["MISTRAL_API_KEY"] = "Vb3UFTvPq3sBIR2kJDwgDn59iFoYcZ7Q"
+#os.environ["SERPER_API_KEY"] = "9b218beb8557de0554ba4710556e6978139bdc12"
 
-llm = LLM(
-    model="gemini-1.5-flash",   
-    api_base="https://generativelanguage.googleapis.com/v1beta/openai",  
-    api_key=os.getenv("GEMINI_API_KEY"),
-    temperature=0.2
-)
+#llm = LLM(
+   # model="gemini-1.5-flash",   
+    #api_base="https://generativelanguage.googleapis.com/v1beta/openai",  
+   # api_key=os.getenv("GEMINI_API_KEY"),
+    #temperature=0.2
+#)
 #tool = SerperDevTool()
 #from transformers import RobertaTokenizer, TFRobertaForSequenceClassification
 from sklearn.model_selection import train_test_split
@@ -458,7 +458,7 @@ if tab =="🔬 ADME Analysis":
                 'timestamp': datetime.datetime.now()
             }
             # ADD ABOVE THIS BLOCK ⬆️
-            
+            '''
             with st.spinner("Processing... Please wait."):
                 inferencer = Agent(
                     role="Drug Discovery Scientist",
@@ -524,6 +524,7 @@ if tab =="🔬 ADME Analysis":
                 # Update inference in report data
                 if 'report_data' in st.session_state and st.session_state.report_data['adme']:
                     st.session_state.report_data['adme']['inference'] = give_insight.output
+'''
 
 if tab=="⚛️ Binding Affinity":
     generate_report_data()  # ADD THIS LINE
@@ -665,9 +666,11 @@ if tab=="⚛️ Binding Affinity":
                 'binding_affinity': del_g,
                 'equilibrium_constant': eqb,
                 'kd_value': K,
-                'inference': give_insight.output if 'give_insight' in locals() else None,
+                #'inference': give_insight.output if 'give_insight' in locals() else None,
+                'inference': None,  # No AI inference needed
                 'timestamp': datetime.datetime.now()
             }
+            '''
             with st.spinner("Processing... Please wait."):
                 inferencer = Agent(
                     role="Drug Discovery Scientist",
@@ -695,7 +698,7 @@ if tab=="⚛️ Binding Affinity":
                 # Update inference in report data
                 if 'report_data' in st.session_state and st.session_state.report_data['binding']:
                     st.session_state.report_data['binding']['inference'] = give_insight.output
-
+'''
 if tab=="🧪 Drug Synergy":
     generate_report_data()  # ADD THIS LINE
     st.subheader("Drug Synergy Prediction")
@@ -770,9 +773,11 @@ if tab=="🧪 Drug Synergy":
                 'cell_line': cell,
                 'bliss_score': bliss_score,
                 'synergy_value': synergy_value,
-                'inference': give_insight.output if 'give_insight' in locals() else None,
+                #'inference': give_insight.output if 'give_insight' in locals() else None,
+                'inference': None,  # No AI inference needed
                 'timestamp': datetime.datetime.now()
             }
+            '''
             with st.spinner("Processing... Please wait."):
                 inferencer = Agent(
                     role="Drug Discovery Scientist",
@@ -803,7 +808,7 @@ if tab=="🧪 Drug Synergy":
                 # Update inference in report data
                 if 'report_data' in st.session_state and st.session_state.report_data['synergy']:
                     st.session_state.report_data['synergy']['inference'] = give_insight.output
-
+'''
 if tab == "📊 Generate Report":
     st.subheader("Generate Comprehensive Report")
     st.markdown("""
