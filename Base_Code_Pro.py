@@ -12,9 +12,10 @@ from rdkit import Chem
 from rdkit.Chem import AllChem , Draw
 from rdkit import DataStructs
 from rdkit.Chem import rdFingerprintGenerator
+import os
+os.environ["CHROMADB_DEFAULT_DATABASE"] = "duckdb"
 from crewai import Agent, Task, Crew, LLM
 #from crewai_tools import SerperDevTool
-import os
 import base64
 from io import BytesIO
 import datetime
