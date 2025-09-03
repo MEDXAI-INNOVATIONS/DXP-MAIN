@@ -625,7 +625,7 @@ if tab=="⚛️ Binding Affinity":
 
     if smiles_ip_2:
         if st.button("Predict"):
-            model.load_state_dict(torch.load(f"{protein}_MODEL_BEST.pth"))
+            model.load_state_dict(torch.load(f"{protein}_model_best.pth"))
             model.eval()
             predicted_y = predict_y(model, smiles_ip_2)
             integer_value = round(predicted_y,2)
