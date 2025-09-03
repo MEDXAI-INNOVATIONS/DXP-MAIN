@@ -760,7 +760,7 @@ if tab=="🧪 Drug Synergy":
         cell=st.selectbox("Choose your desired cell line",options=cell_line)
     if smiles_sy_1 and smiles_sy_2:
         if st.button("Predict Synergy"):
-            model_sy.load_state_dict(torch.load(f"{cell}_MODEL.pth", map_location = torch.device("cpu"))
+            model_sy.load_state_dict(torch.load(f"{cell}_MODEL.pth", map_location = torch.device("cpu")))
             model_sy.eval()
             predicted_sy = predict_sy(model_sy, smiles_sy_1, smiles_sy_2)
             synergy_value = round(predicted_sy,2)
