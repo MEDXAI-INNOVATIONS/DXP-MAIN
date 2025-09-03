@@ -373,7 +373,9 @@ if tab =="🔬 ADME Analysis":
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
             try:
-                model_sy.load_state_dict(torch.load(f"{cell}_MODEL.pth", map_location=torch.device("cpu")))
+                model_sy.load_state_dict(
+                   torch.load(f"{cell}_MODEL.pth", map_location=torch.device("cpu"))
+                )
                 model_cyp.to(device)
                 model_cyp.eval()
                 predicted_1A2 = predict_cyp(model_cyp, smiles_ip, 150)  # Make sure smiles_ip is on device if tensor
